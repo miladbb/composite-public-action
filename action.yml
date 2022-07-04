@@ -23,5 +23,6 @@ runs:
       uses: actions/download-artifact@v3
       with:
         name: my-artifact          
-   
+    - run: cat my_file.txt
+      shell: bash
   
