@@ -27,7 +27,7 @@ runs:
         format: 'YYYY-MM-DD-HH-mm-ss'
 
     - name: "Bump version and create PR"
-      uses: ./.github/actions/create-pr
+      uses: .github/actions/create-pr
       with:
           image-tag-name: remote-config-v-${{ github.run_number }}-${{ steps.time.outputs.time }}
           user-email: milad@backbase.com
