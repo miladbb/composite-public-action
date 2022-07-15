@@ -4,6 +4,10 @@ inputs:
   package-id:
     description: 'provisioning package id in artifacts'
     required: true
+  create-pr:
+    description: 'if set true, this action tries to create pr in application-live and you should set all optional input parameters'
+    required: true
+    default: "false"    
   user-email:
     description: 'user email for the commiting github user'
     required: false
@@ -39,6 +43,7 @@ runs:
         format: 'YYYY-MM-DD-HH-mm-ss'
 
     - name: "Update basic-installation & create PR"
+      if: ${{ inputs.create-pr }} == 'true'
       env:
         USER_EMAIL: ${{ inputs.user-email }}
         USER_NAME: ${{ inputs.user-name }}
