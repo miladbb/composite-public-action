@@ -4,6 +4,9 @@ inputs:
   package-id:
     description: 'provisioning package id in artifacts'
     required: true
+  application-name:
+    description: 'name of application which is being released. should be alphanumeric'
+    required: true
   create-pr:
     description: 'if set true, this action tries to create pr in application-live and you should set all optional input parameters'
     required: true
@@ -39,7 +42,7 @@ runs:
       id: time
       uses: nanzm/get-time-action@v1.1
       with:
-        format: 'YYYY-MM-DD-HH-mm-ss'
+        format: 'YYYYMMDDHHmm'
 
     - name: "Update basic-installation & create PR"
       if: ${{ inputs.create-pr  == 'true' }}
